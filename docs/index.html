@@ -10,7 +10,7 @@
     body {
       margin: 0;
       font-family: 'Cinzel', serif;
-      background-color: #0d0d0d;
+      background: linear-gradient(135deg, #0d0d0d, #1c1c1c);
       color: #eaeaea;
       overflow-x: hidden;
     }
@@ -22,6 +22,16 @@
       text-align: center;
       color: #ffcc00;
       border-bottom: 5px solid #e63946;
+      animation: flicker 2s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% {
+        text-shadow: 0 0 5px #ffcc00, 0 0 15px #ffcc00, 0 0 30px #ff6600;
+      }
+      100% {
+        text-shadow: 0 0 10px #ff6600, 0 0 20px #ffcc00, 0 0 40px #ffcc00;
+      }
     }
 
     header h1 {
@@ -37,6 +47,16 @@
       font-size: 18px;
       margin: 5px 0;
       color: #eaeaea;
+      animation: fadeIn 3s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     /* Navigation */
@@ -46,6 +66,16 @@
       justify-content: space-around;
       padding: 10px 0;
       border-bottom: 3px solid #ffcc00;
+      animation: slideIn 1.5s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(0);
+      }
     }
 
     nav a {
@@ -61,6 +91,7 @@
       color: #ffcc00;
       background-color: #333;
       border-radius: 5px;
+      transform: scale(1.1);
     }
 
     /* Main Content */
@@ -70,9 +101,19 @@
     }
 
     h2 {
-      font-size: 30px;
+      font-size: 36px;
       margin-bottom: 20px;
       color: #ffcc00;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        text-shadow: 0 0 10px #ffcc00, 0 0 20px #e63946, 0 0 30px #ff6600;
+      }
+      50% {
+        text-shadow: 0 0 20px #ffcc00, 0 0 30px #e63946, 0 0 50px #ff6600;
+      }
     }
 
     /* Progress Tracker */
@@ -86,74 +127,70 @@
     }
 
     .stamp {
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       border: 3px solid #ffcc00;
-      background-color: #333;
+      background: radial-gradient(circle, #333, #222);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 18px;
+      font-size: 20px;
       color: #ffcc00;
       font-weight: bold;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.5s ease-in-out;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
       cursor: pointer;
     }
 
     .stamp.filled {
       background-color: #ffcc00;
       color: #0d0d0d;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+      transform: rotateY(360deg);
+    }
+
+    .stamp:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 15px #ffcc00;
     }
 
     /* Buttons */
     button {
       padding: 15px 30px;
       font-size: 18px;
-      background-color: #e63946;
+      background: linear-gradient(90deg, #e63946, #ff6600);
       color: #fff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
     }
 
     button:hover {
-      background-color: #ffcc00;
+      background: linear-gradient(90deg, #ff6600, #e63946);
       color: #0d0d0d;
+      transform: translateY(-2px);
     }
 
     .message {
       margin-top: 20px;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
       color: #ffcc00;
+      animation: bounce 2s infinite;
     }
 
-    /* Toast Notification */
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #e63946;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 16px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-      opacity: 0;
-      transition: opacity 0.5s, bottom 0.5s;
-      z-index: 1000;
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
-    .toast.show {
-      opacity: 1;
-      bottom: 50px;
-    }
-
-    /* Offer Section */
+    /* Special Offer Section */
     .offer {
       margin-top: 40px;
       padding: 20px;
@@ -161,23 +198,42 @@
       border: 2px solid #e63946;
       border-radius: 10px;
       text-align: center;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px #e63946;
+      }
+      to {
+        box-shadow: 0 0 20px #ffcc00;
+      }
     }
 
     .offer h3 {
-      font-size: 24px;
+      font-size: 28px;
       color: #ffcc00;
-      margin-bottom: 10px;
     }
 
     .offer p {
-      font-size: 18px;
+      font-size: 20px;
       color: #eaeaea;
     }
 
     .offer-code {
-      font-size: 22px;
+      font-size: 26px;
       font-weight: bold;
       color: #e63946;
+      animation: flash 1s infinite;
+    }
+
+    @keyframes flash {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
     }
   </style>
 </head>
@@ -193,23 +249,17 @@
   </nav>
   <div class="container">
     <h2>Your Loyalty Progress</h2>
-    <div class="progress-container" id="progress">
-      <!-- Progress circles will be dynamically added -->
-    </div>
+    <div class="progress-container" id="progress"></div>
     <button id="addPizzaButton">Add Pizza</button>
     <p class="message" id="rewardMessage"></p>
   </div>
 
-  <!-- Special Offer -->
   <div class="offer">
     <h3>Special Holiday Offer!</h3>
     <p>Visit <a href="https://www.lacosanostra.ie" style="color: #ffcc00; text-decoration: underline;">www.lacosanostra.ie</a> and use the code below for a 20% discount on your next order:</p>
     <p class="offer-code">MANGIA20</p>
     <p>Happy Christmas from the owners of La Cosa Nostra!</p>
   </div>
-
-  <!-- Toast Notification -->
-  <div id="toast" class="toast">You’ve added a pizza!</div>
 
   <script>
     const totalPizzas = 10;
@@ -218,52 +268,36 @@
     const progressContainer = document.getElementById('progress');
     const addPizzaButton = document.getElementById('addPizzaButton');
     const rewardMessage = document.getElementById('rewardMessage');
-    const toast = document.getElementById('toast');
 
-    // Function to display toast notifications
-    function showToast(message) {
-      toast.textContent = message;
-      toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 3000);
-    }
-
-    // Update progress UI
     function updateProgress() {
       progressContainer.innerHTML = '';
       for (let i = 1; i <= totalPizzas; i++) {
         const stamp = document.createElement('div');
         stamp.classList.add('stamp');
-        if (i <= pizzasCollected) stamp.classList.add('filled');
+        if (i <= pizzasCollected) {
+          stamp.classList.add('filled');
+        }
         stamp.textContent = i;
         progressContainer.appendChild(stamp);
-
-        // Add animation
-        stamp.addEventListener('click', () => {
-          showToast(`Pizza ${i} added to your loyalty card!`);
-        });
       }
 
       if (pizzasCollected === totalPizzas) {
-        rewardMessage.textContent = 'Congratulations! You’ve earned a FREE pizza!';
+        rewardMessage.textContent = '🎉 Congratulations! Enjoy your FREE pizza!';
         addPizzaButton.disabled = true;
+        addPizzaButton.textContent = 'Completed!';
       } else {
-        rewardMessage.textContent = `You need ${totalPizzas - pizzasCollected} more pizzas for a free one!`;
+        rewardMessage.textContent = `You need ${totalPizzas - pizzasCollected} more pizzas for a free one! 🍕`;
         addPizzaButton.disabled = false;
       }
     }
 
-    // Event listener for adding pizzas
     addPizzaButton.addEventListener('click', () => {
       if (pizzasCollected < totalPizzas) {
         pizzasCollected++;
-        showToast('You’ve added a pizza!');
         updateProgress();
       }
     });
 
-    // Initial load
     updateProgress();
   </script>
 </body>
