@@ -6,37 +6,45 @@
   <title>La Cosa Nostra Rewards</title>
   <style>
     /* General Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
     body {
       margin: 0;
       font-family: 'Cinzel', serif;
-      background-color: #1c1c1c;
-      color: #f8f8f8;
+      background-color: #0d0d0d;
+      color: #eaeaea;
     }
 
     /* Header */
     header {
-      background-color: #2b2b2b;
+      background-color: #141414;
       padding: 20px;
       text-align: center;
       color: #ffcc00;
-      border-bottom: 4px solid #e63946;
+      border-bottom: 5px solid #e63946;
     }
 
     header h1 {
-      font-size: 36px;
+      font-size: 42px;
       margin: 0;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       font-weight: bold;
+    }
+
+    header p {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      margin: 5px 0;
+      color: #eaeaea;
     }
 
     /* Navigation */
     nav {
-      background-color: #333;
+      background-color: #222;
       display: flex;
       justify-content: space-around;
       padding: 10px 0;
-      border-bottom: 2px solid #ffcc00;
+      border-bottom: 3px solid #ffcc00;
     }
 
     nav a {
@@ -50,7 +58,7 @@
 
     nav a:hover {
       color: #ffcc00;
-      background-color: #444;
+      background-color: #333;
       border-radius: 5px;
     }
 
@@ -61,7 +69,7 @@
     }
 
     h2 {
-      font-size: 28px;
+      font-size: 30px;
       margin-bottom: 20px;
       color: #ffcc00;
     }
@@ -81,7 +89,7 @@
       height: 60px;
       border-radius: 50%;
       border: 3px solid #ffcc00;
-      background-color: #444;
+      background-color: #333;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -93,7 +101,7 @@
 
     .stamp.filled {
       background-color: #ffcc00;
-      color: #1c1c1c;
+      color: #0d0d0d;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
     }
 
@@ -111,7 +119,7 @@
 
     button:hover {
       background-color: #ffcc00;
-      color: #1c1c1c;
+      color: #0d0d0d;
     }
 
     .message {
@@ -119,6 +127,33 @@
       font-size: 20px;
       font-weight: bold;
       color: #ffcc00;
+    }
+
+    /* Offer Section */
+    .offer {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border: 2px solid #e63946;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .offer h3 {
+      font-size: 24px;
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
+
+    .offer p {
+      font-size: 18px;
+      color: #eaeaea;
+    }
+
+    .offer-code {
+      font-size: 22px;
+      font-weight: bold;
+      color: #e63946;
     }
 
     /* Modal */
@@ -168,6 +203,7 @@
 <body>
   <header>
     <h1>La Cosa Nostra Rewards</h1>
+    <p>From our family to yours, Happy Christmas!</p>
   </header>
   <nav>
     <a href="#menu">Menu</a>
@@ -181,6 +217,14 @@
     </div>
     <button id="addPizzaButton">Add Pizza</button>
     <p class="message" id="rewardMessage"></p>
+  </div>
+
+  <!-- Special Offer -->
+  <div class="offer">
+    <h3>Special Holiday Offer!</h3>
+    <p>Visit <a href="https://www.lacosanostra.ie" style="color: #ffcc00; text-decoration: underline;">www.lacosanostra.ie</a> and use the code below for a 20% discount on your next order:</p>
+    <p class="offer-code">MANGIA20</p>
+    <p>Happy Christmas from the owners of La Cosa Nostra!</p>
   </div>
 
   <!-- Reward Modal -->
