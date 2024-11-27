@@ -50,15 +50,6 @@
       animation: fadeIn 3s;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
     /* Navigation */
     nav {
       background-color: #222;
@@ -67,15 +58,6 @@
       padding: 10px 0;
       border-bottom: 3px solid #ffcc00;
       animation: slideIn 1.5s ease-out;
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateY(-100%);
-      }
-      to {
-        transform: translateY(0);
-      }
     }
 
     nav a {
@@ -94,146 +76,114 @@
       transform: scale(1.1);
     }
 
-    /* Main Content */
-    .container {
-      text-align: center;
-      padding: 30px;
-    }
-
-    h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      color: #ffcc00;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        text-shadow: 0 0 10px #ffcc00, 0 0 20px #e63946, 0 0 30px #ff6600;
-      }
-      50% {
-        text-shadow: 0 0 20px #ffcc00, 0 0 30px #e63946, 0 0 50px #ff6600;
-      }
-    }
-
-    /* Progress Tracker */
-    .progress-container {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
-      justify-content: center;
-      margin: 20px auto;
-      max-width: 400px;
-    }
-
-    .stamp {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      border: 3px solid #ffcc00;
-      background: radial-gradient(circle, #333, #222);
-      display: flex;
+    /* Special Discount Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
       justify-content: center;
       align-items: center;
-      font-size: 20px;
+      overflow: hidden;
+    }
+
+    .modal-content {
+      text-align: center;
       color: #ffcc00;
+      animation: zoomIn 1s ease-out;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      color: #e63946;
+      text-shadow: 0 0 15px #ff6600;
+    }
+
+    .modal p {
+      font-size: 22px;
+      margin: 10px 0;
+      color: #eaeaea;
+    }
+
+    .discount-code {
+      font-size: 36px;
       font-weight: bold;
-      transition: all 0.5s ease-in-out;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
-      cursor: pointer;
+      color: #ffcc00;
+      margin: 20px 0;
+      animation: glow 1.5s infinite alternate;
     }
 
-    .stamp.filled {
-      background-color: #ffcc00;
-      color: #0d0d0d;
-      transform: rotateY(360deg);
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ffcc00;
+      }
+      to {
+        text-shadow: 0 0 20px #e63946;
+      }
     }
 
-    .stamp:hover {
-      transform: scale(1.2);
-      box-shadow: 0 0 15px #ffcc00;
+    /* Fireworks Animation */
+    .fireworks {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
     }
 
-    /* Buttons */
-    button {
-      padding: 15px 30px;
+    .firework {
+      position: absolute;
+      background: radial-gradient(circle, #ffcc00, rgba(255, 204, 0, 0));
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      animation: firework 1s ease-out forwards;
+    }
+
+    @keyframes firework {
+      0% {
+        opacity: 1;
+        transform: scale(0.5);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(3);
+      }
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
       font-size: 18px;
       background: linear-gradient(90deg, #e63946, #ff6600);
       color: #fff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s;
     }
 
-    button:hover {
+    .close-btn:hover {
       background: linear-gradient(90deg, #ff6600, #e63946);
-      color: #0d0d0d;
-      transform: translateY(-2px);
-    }
-
-    .message {
-      margin-top: 20px;
-      font-size: 22px;
-      font-weight: bold;
-      color: #ffcc00;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    /* Special Offer Section */
-    .offer {
-      margin-top: 40px;
-      padding: 20px;
-      background-color: #1c1c1c;
-      border: 2px solid #e63946;
-      border-radius: 10px;
-      text-align: center;
-      animation: glow 2s infinite alternate;
-    }
-
-    @keyframes glow {
-      from {
-        box-shadow: 0 0 10px #e63946;
-      }
-      to {
-        box-shadow: 0 0 20px #ffcc00;
-      }
-    }
-
-    .offer h3 {
-      font-size: 28px;
-      color: #ffcc00;
-    }
-
-    .offer p {
-      font-size: 20px;
-      color: #eaeaea;
-    }
-
-    .offer-code {
-      font-size: 26px;
-      font-weight: bold;
-      color: #e63946;
-      animation: flash 1s infinite;
-    }
-
-    @keyframes flash {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.5;
-      }
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -244,61 +194,56 @@
   </header>
   <nav>
     <a href="https://www.la-cosanostra.com/menu" target="_blank">Menu</a>
-    <a href="#rewards">Rewards</a>
+    <a id="rewardsLink">Rewards</a>
     <a href="https://www.la-cosanostra.com/reservations" target="_blank">Book a Table</a>
   </nav>
-  <div class="container">
-    <h2>Your Loyalty Progress</h2>
-    <div class="progress-container" id="progress"></div>
-    <button id="addPizzaButton">Add Pizza</button>
-    <p class="message" id="rewardMessage"></p>
-  </div>
 
-  <div class="offer">
-    <h3>Special Holiday Offer!</h3>
-    <p>Visit <a href="https://www.lacosanostra.ie" style="color: #ffcc00; text-decoration: underline;">www.lacosanostra.ie</a> and use the code below for a 20% discount on your next order:</p>
-    <p class="offer-code">MANGIA20</p>
-    <p>Happy Christmas from the owners of La Cosa Nostra!</p>
+  <!-- Discount Modal -->
+  <div class="modal" id="discountModal">
+    <div class="modal-content">
+      <div class="fireworks" id="fireworks"></div>
+      <h2>🎉 Special Rewards!</h2>
+      <p>Thank you for being a valued customer!</p>
+      <p>Your exclusive discount code is:</p>
+      <p class="discount-code">CIAO2025</p>
+      <p>Redeemable between <strong>02nd Jan 2025</strong> and <strong>01st Mar 2025</strong>.</p>
+      <button class="close-btn" id="closeModal">Close</button>
+    </div>
   </div>
 
   <script>
-    const totalPizzas = 10;
-    let pizzasCollected = 0;
+    const rewardsLink = document.getElementById('rewardsLink');
+    const discountModal = document.getElementById('discountModal');
+    const closeModal = document.getElementById('closeModal');
+    const fireworksContainer = document.getElementById('fireworks');
 
-    const progressContainer = document.getElementById('progress');
-    const addPizzaButton = document.getElementById('addPizzaButton');
-    const rewardMessage = document.getElementById('rewardMessage');
+    // Function to show fireworks
+    function showFireworks() {
+      for (let i = 0; i < 15; i++) {
+        const firework = document.createElement('div');
+        firework.classList.add('firework');
+        firework.style.left = Math.random() * 100 + '%';
+        firework.style.top = Math.random() * 100 + '%';
+        firework.style.animationDelay = Math.random() * 0.5 + 's';
+        fireworksContainer.appendChild(firework);
 
-    function updateProgress() {
-      progressContainer.innerHTML = '';
-      for (let i = 1; i <= totalPizzas; i++) {
-        const stamp = document.createElement('div');
-        stamp.classList.add('stamp');
-        if (i <= pizzasCollected) {
-          stamp.classList.add('filled');
-        }
-        stamp.textContent = i;
-        progressContainer.appendChild(stamp);
-      }
-
-      if (pizzasCollected === totalPizzas) {
-        rewardMessage.textContent = '🎉 Congratulations! Enjoy your FREE pizza!';
-        addPizzaButton.disabled = true;
-        addPizzaButton.textContent = 'Completed!';
-      } else {
-        rewardMessage.textContent = `You need ${totalPizzas - pizzasCollected} more pizzas for a free one! 🍕`;
-        addPizzaButton.disabled = false;
+        // Remove firework after animation
+        firework.addEventListener('animationend', () => {
+          firework.remove();
+        });
       }
     }
 
-    addPizzaButton.addEventListener('click', () => {
-      if (pizzasCollected < totalPizzas) {
-        pizzasCollected++;
-        updateProgress();
-      }
+    // Event listener for Rewards link
+    rewardsLink.addEventListener('click', () => {
+      discountModal.style.display = 'flex';
+      showFireworks();
     });
 
-    updateProgress();
+    // Event listener to close modal
+    closeModal.addEventListener('click', () => {
+      discountModal.style.display = 'none';
+    });
   </script>
 </body>
 </html>
